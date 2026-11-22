@@ -1,13 +1,16 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=5.0.0"
-    }
+locals {
+  common_tags = {
+    Environment = "Dev"
+    ManagedBy   = "Terraform"
+    Project     = "DevOpsAssignment"
+    Owner       = "var.owner"
   }
 }
 
-# Configure the Microsoft Azure Provider
-provider "azurerm" {
-  features {}
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-devops-dev"
+  location = var.location
+
+  tags = local.common_tags
+
 }
