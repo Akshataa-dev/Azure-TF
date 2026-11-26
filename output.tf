@@ -17,3 +17,12 @@ output "key_vault_name" {
   value = azurerm_key_vault.kv.name
 
 }
+
+output "sql_server_name" {
+  value = azurerm_mssql_server.sqlserver.name
+
+}
+output "sql_database_name" {
+  value = azurerm_mssql_database.sqldb.name
+
+}

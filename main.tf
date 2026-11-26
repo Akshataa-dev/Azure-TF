@@ -160,6 +160,9 @@ resource "azurerm_linux_web_app" "webapp" {
   site_config {
 
   }
+  lifecycle {
+    ignore_changes = [virtual_network_subnet_id]
+  }
   tags = local.common_tags
 }
 
